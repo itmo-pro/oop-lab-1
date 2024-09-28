@@ -12,7 +12,7 @@ internal interface RaceType
 
 internal class AirRaceType : RaceType
 {
-    public string name => "Air Race";
+    public string name => "только для воздушного транспорта";
 
     public bool canRace(VehicleType vehicleType)
     {
@@ -22,7 +22,7 @@ internal class AirRaceType : RaceType
 
 internal class RoadRaceType : RaceType
 {
-    public string name => "Road Race";
+    public string name => "только для наземного транспорта";
 
     public bool canRace(VehicleType vehicleType)
     {
@@ -32,7 +32,7 @@ internal class RoadRaceType : RaceType
 
 internal class FreeRaceType : RaceType
 {
-    public string name => "Free Race";
+    public string name => "для всех типов транспортных средств";
 
     public bool canRace(VehicleType vehicleType)
     {

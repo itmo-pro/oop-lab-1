@@ -20,7 +20,7 @@ internal class RaceController
 
         var raceType = selectRaceType(raceTypeService.findAll());
         var distance = selectDistance(AppConfig.RACE_DISTANCE_MAX);
-        var vehicles = selectVehicles(vehicleTypeService.findAll(), this);
+        var vehicles = selectVehicles(vehicleTypeService.findByRaceType(raceType), this);
         var whether = selectWhether();
 
         var race = new Race(raceType, distance, vehicles, whether);
