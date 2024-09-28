@@ -1,7 +1,11 @@
 // ReSharper disable InconsistentNaming
 
+using race.config;
 using race.model;
 using race.service;
+using race.view;
+using static race.view.ResultsView;
+using static race.view.SetupView;
 
 namespace race.controller;
 
@@ -13,48 +17,27 @@ internal class RaceController
 
     public void run()
     {
-        Console.WriteLine("Hello, lets some race!");
+        greetings();
 
-        RaceType raceType = selectRaceType();
-        // IList<Vehicle> vehicles = selectVehicles();
-        // Whether whether = selectWhether();
+        var raceType = selectRaceType(raceTypeService.findAll());
+        var distance = selectDistance(AppConfig.RACE_DISTANCE_MAX);
+        var vehicles = selectVehicles(vehicleTypeService.findAll(), this);
+        var whether = selectWhether();
 
-        // var race = new Race() { raceType = raceType, vehicles = vehicles, whether = whether };
-        
-        Console.WriteLine("You selected:");
-        Console.WriteLine("Race Type: {0}", raceType.name);
-    }
-
-    private RaceType selectRaceType()
-    {
-        Console.WriteLine("Select race type one of:");
-        var raceTypes = raceTypeService.findAll();
-        foreach (var raceType in raceTypes)
+        var race = new Race
         {
-            Console.WriteLine("  {0}", raceType.name);
-        }
+            raceType = raceType,
+            distance = distance,
+            vehicles = vehicles,
+            whether = whether,
+        };
 
-        RaceType? result = null;
-        do
-        {
-            Console.WriteLine("Race type:");
-            var input = Console.ReadLine();
+        raceService.perform(race);
 
-            if (input == null)
-            {
-                continue;
-            }
+        var results = race.getResults();
 
-            foreach (var raceType in raceTypes)
-            {
-                if (raceType.name.ToLowerInvariant().StartsWith(input.ToLowerInvariant()))
-                {
-                    result = raceType;
-                    break;
-                }
-            }
-        } while (result is null);
+        display(results);
 
-        return result;
+        gameOver();
     }
 }

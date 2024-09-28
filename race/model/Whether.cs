@@ -2,7 +2,7 @@
 
 namespace race.model;
 
-internal interface Whether
+internal class Whether
 {
     public int temperature { get; set; }
     public Condition condition { get; set; }

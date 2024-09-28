@@ -9,8 +9,8 @@ internal class RaceTypeRepository
 {
     private readonly List<RaceType> list = new()
     {
-        new RoadRaceType(),
         new AirRaceType(),
+        new RoadRaceType(),
         new FreeRaceType(),
     };
 
