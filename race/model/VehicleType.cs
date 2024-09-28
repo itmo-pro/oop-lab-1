@@ -12,11 +12,6 @@ internal class AirVehicleType : VehicleType
 {
     public string name { get; set; }
     public int speed { get; set; }
-
-    public double acceleration()
-    {
-        throw new NotImplementedException();
-    }
 }
 
 public class RoadVehicleType : VehicleType
