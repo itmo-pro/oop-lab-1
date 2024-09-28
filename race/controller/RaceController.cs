@@ -3,7 +3,6 @@
 using race.config;
 using race.model;
 using race.service;
-using race.view;
 using static race.view.ResultsView;
 using static race.view.SetupView;
 
@@ -24,19 +23,11 @@ internal class RaceController
         var vehicles = selectVehicles(vehicleTypeService.findAll(), this);
         var whether = selectWhether();
 
-        var race = new Race
-        {
-            raceType = raceType,
-            distance = distance,
-            vehicles = vehicles,
-            whether = whether,
-        };
+        var race = new Race(raceType, distance, vehicles, whether);
 
         raceService.perform(race);
 
-        var results = race.getResults();
-
-        display(results);
+        display(race.results);
 
         gameOver();
     }

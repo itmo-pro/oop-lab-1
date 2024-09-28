@@ -14,7 +14,7 @@ internal static class SetupView
 
     public static void gameOver()
     {
-        Console.WriteLine("      --== GAME OVER ==--");
+        Console.WriteLine("    --== GAME OVER ==--");
     }
 
     public static int selectDistance(int distanceMax)
@@ -36,7 +36,7 @@ internal static class SetupView
 
     public static IList<Vehicle> selectVehicles(IList<VehicleType> vehicleTypes, RaceController raceController)
     {
-        var vehicleCount = readInt("Enter number of racers: ", 2, 13);
+        var vehicleCount = readInt("Enter number of racers [2...12]: ", 2, 13);
         var result = new List<Vehicle>(vehicleCount);
         displayVehicleTypes(vehicleTypes);
         for (var i = 0; i < vehicleCount; i++)
@@ -53,7 +53,7 @@ internal static class SetupView
         Console.WriteLine("Today, Gods is giving us the next types of vehicles:");
         for (var i = 0; i < vehicleTypes.Count; i++)
         {
-            Console.WriteLine($"[{i}]  {vehicleTypes[i]}");
+            Console.WriteLine($"[{i}]  {vehicleTypes[i].name}");
         }
     }
 

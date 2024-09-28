@@ -17,5 +17,8 @@ internal static class ResultsView
         {
             Console.WriteLine($"{++place}) {vehicle} \t {time}");
         }
+        
+        Console.WriteLine("=============================");
+        Console.WriteLine();
     }
 }

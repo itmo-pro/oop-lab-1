@@ -14,9 +14,9 @@ internal class VehicleTypeRepositoryImpl : VehicleTypeRepository
 {
     private readonly List<VehicleType> list = new()
     {
-        new RoadVehicleType() { name = "Some RR", speed = 100, restTime = 1, timeBeforeRest = 1},
-        new AirVehicleType() { name = "Гуси-Лебеди", speed = 100 },
-        new AirVehicleType() { name = "Избушка на курьих ножках", speed = 200 },
+        new RoadVehicleType() { name = "Some RR", speed = 1, restTime = 1, timeBeforeRest = 1},
+        new AirVehicleType() { name = "Гуси-Лебеди", speed = 1 },
+        new AirVehicleType() { name = "Избушка на курьих ножках", speed = 2 },
     };
 
     public IList<VehicleType> findAll()
