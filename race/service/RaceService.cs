@@ -22,7 +22,7 @@ internal class RaceService
             {
                 if (position < race.distance)
                 {
-                    var nextPosition = position + vehicle.performTimeTick(race.raceType, race.whether);
+                    var nextPosition = position + vehicle.performTimeTick(position, time, race.raceType, race.whether);
                     vehiclePositions[vehicle] = nextPosition;
                     if (nextPosition >= race.distance)
                     {

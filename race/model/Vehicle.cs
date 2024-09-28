@@ -4,12 +4,12 @@ namespace race.model;
 
 internal class Vehicle
 {
-    public VehicleType vehicleType { get; set; }
-    public string racerName { get; set; }
+    public VehicleType vehicleType { get; init; }
+    public string racerName { get; init; }
 
-    public int performTimeTick(RaceType raceRaceType, Whether raceWhether)
+    public int performTimeTick(int position, int time, RaceType raceRaceType, Whether whether)
     {
-        return vehicleType.speed;
+        return vehicleType.performTimeTick(position, time, raceRaceType, whether);
     }
 
     public override string ToString()
