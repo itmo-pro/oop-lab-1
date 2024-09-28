@@ -69,16 +69,6 @@ internal static class SetupView
         };
     }
 
-    public static Whether selectWhether()
-    {
-        // todo
-        return new Whether()
-        {
-            temperature = 24,
-            condition = Whether.Condition.VERDE
-        };
-    }
-
     private static int readInt(string prompt, int? leftBoundInclusive = null, int? rightBoundExclusive = null)
     {
         Console.Write(prompt);

@@ -13,6 +13,7 @@ internal class RaceController
     private readonly RaceService raceService = new RaceService();
     private readonly RaceTypeService raceTypeService = new RaceTypeService();
     private readonly VehicleTypeService vehicleTypeService = new VehicleTypeService();
+    private readonly WhetherService whetherService = new WhetherService();
 
     public void run()
     {
@@ -21,7 +22,7 @@ internal class RaceController
         var raceType = selectRaceType(raceTypeService.findAll());
         var distance = selectDistance(AppConfig.RACE_DISTANCE_MAX);
         var vehicles = selectVehicles(vehicleTypeService.findByRaceType(raceType), this);
-        var whether = selectWhether();
+        var whether = whetherService.craftWhether();
 
         var race = new Race(raceType, distance, vehicles, whether);
 
